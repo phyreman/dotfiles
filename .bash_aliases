@@ -1,0 +1,54 @@
+# Go up a directory or two
+alias ..="cd .."
+alias ...="cd ../.."
+
+# Makes 'git clone' better by going to the new repo after it's cloned
+alias clone='f(){ git clone "$@"; test -n "$2" && cd "$2" || cd `basename "$1" | sed "s/^.*\://"`;}; f'
+
+# Copy some file to the current directory
+alias cph='f(){ cp "$1" .;}; f'
+
+# cd to the Desktop
+alias desk="cd $HOME/Desktop"
+
+# 'gem' needs root access
+alias gem="sudo gem"
+
+# Make grep pretty!
+alias grep="grep --color=auto"
+
+# Shorthand for directory listing
+alias la="ls -a"
+alias ll="ls -l"
+
+# Move the file into the current directory
+alias mvh='f(){ mv "$1" .;}; f'
+
+# Make the 'open' command default to opening a Finder window of the current directory
+alias open='f(){ test -z "$1" && open . || open "$1";}; f'
+
+# Make 'patch' less confusing
+alias patch="patch -p0 <"
+
+# All these need root access
+alias pear="sudo pear"
+alias pecl="sudo pecl"
+alias port="sudo port"
+
+# Install 'rmtrash' and alias 'rm' so we never delete files, just move them to the trash
+alias rm="rmtrash"
+
+# Make 'vim' use 'sudo' so we can access files that we shouldn't
+alias svim="sudo vim"
+
+# Give top a high priority, then clear the screen once done
+alias top="nice nice top && clear"
+
+# Fire up the GBA Emulator!
+alias vba="visualboyadvance"
+
+# Show all occurances
+alias which="which -a"
+
+# cd to my Java workspace
+alias workspace="cd $HOME/Documents/workspace"
