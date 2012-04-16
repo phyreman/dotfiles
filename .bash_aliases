@@ -17,9 +17,15 @@ alias gem="sudo gem"
 # Make grep pretty!
 alias grep="grep --color=auto"
 
+# Get external IP
+alias ip="dig +short myip.opendns.com @resolver.opendns.com"
+
 # Shorthand for directory listing
 alias la="ls -a"
 alias ll="ls -l"
+
+# Get local IP
+alias lip="ipconfig getifaddr en0 || ipconfig getifaddr en1"
 
 # Move the file into the current directory
 alias mvh='f(){ mv "$1" .;}; f'
@@ -44,11 +50,5 @@ alias svim="sudo vim"
 # Give top a high priority, then clear the screen once done
 alias top="nice nice top && clear"
 
-# Fire up the GBA Emulator!
-alias vba="visualboyadvance"
-
 # Show all occurances
 alias which="which -a"
-
-# cd to my Java workspace
-alias workspace="cd $HOME/Documents/workspace"
