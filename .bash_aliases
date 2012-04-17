@@ -2,6 +2,9 @@
 alias ..="cd .."
 alias ...="cd ../.."
 
+# Go back to previous working directory
+alias back='cd `cd -`'
+
 # Makes 'git clone' better by going to the new repo after it's cloned
 alias clone='f(){ git clone "$@"; test -n "$2" && cd "$2" || cd `basename "$1" | sed "s/^.*\://"`;}; f'
 
