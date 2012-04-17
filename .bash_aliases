@@ -44,6 +44,9 @@ alias pear="sudo pear"
 alias pecl="sudo pecl"
 alias port="sudo port"
 
+# Create a new RAMDisk
+alias ramdisk='f() { SIZE=200000;test -n "$1" && SIZE=$(($1*2000));diskutil eraseVolume HFS+ RAMDisk `hdid -nomount ram://$SIZE`;}; f'
+
 # Install 'rmtrash' and alias 'rm' so we never delete files, just move them to the trash
 alias rm="rmtrash"
 
