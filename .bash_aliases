@@ -24,7 +24,7 @@ alias grep="grep --color=auto"
 alias ip="dig +short myip.opendns.com @resolver.opendns.com"
 
 # Shorthand for directory listing
-alias la="ls -a"
+alias la="ls -A"
 alias ll="ls -l"
 
 # Get local IP
