@@ -1,9 +1,9 @@
 # Go up a directory or two
-alias ..="cd .."
-alias ...="cd ../.."
+alias ..='f(){ test -n "$1" && cd ../$1 || cd ..;}; f'
+alias ...='f(){ test -n "$1" && cd ../../$1 || cd ../..;}; f'
 
 # Go back to previous working directory
-alias back='cd `cd -`'
+alias back='cd - >/dev/null'
 
 # Makes 'git clone' better by going to the new repo after it's cloned
 alias clone='f(){ git clone "$@"; test -n "$2" && cd "$2" || cd `basename "$1" | sed "s/^.*\://"`;}; f'
