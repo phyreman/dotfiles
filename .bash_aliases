@@ -47,6 +47,9 @@ alias port="sudo port"
 # Create a new RAMDisk
 alias ramdisk='f() { SIZE=200000;test -n "$1" && SIZE=$(($1*2000));diskutil eraseVolume HFS+ RAMDisk `hdid -nomount ram://$SIZE`;}; f'
 
+# Open pull request page for current branch in current repo in the brower
+alias req='f() { REPO=`git remote -v | grep origin -m 1 | sed "s:\/: :" | awk "{print \\$3}"`;BRANCH=`git branch | grep "*" | awk "{print \\$2}"`;GIT_USER=`git config --get github.user`;open https://github.com/$GIT_USER/$REPO/pull/new/$BRANCH;}; f'
+
 # Install 'rmtrash' and alias 'rm' so we never delete files, just move them to the trash
 alias rm="rmtrash"
 
@@ -54,7 +57,7 @@ alias rm="rmtrash"
 alias svim="sudo vim"
 
 # Give top a high priority, then clear the screen once done
-alias top="nice nice top && clear"
+alias top="top && clear"
 
 # Show all occurances
 alias which="which -a"
