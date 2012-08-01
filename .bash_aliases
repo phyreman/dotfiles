@@ -14,6 +14,9 @@ alias cph='f(){ cp "$1" .;}; f'
 # cd to the Desktop
 alias desk="cd $HOME/Desktop"
 
+# Get frequency of every word in given file
+alias freq='f(){ cat "$1" | tr -d "[:punct:] | tr "[:upper:]" "[:lower:]" | tr -s " " "\n" | sort | uniq -c | sort -rn;}; f'
+
 # 'gem' needs root access
 alias gem="sudo gem"
 
@@ -21,7 +24,7 @@ alias gem="sudo gem"
 alias grep="grep --color=auto"
 
 # Get external IP
-alias ip="dig +short myip.opendns.com @resolver.opendns.com"
+alias ip="curl ifconfig.me"
 
 # Shorthand for directory listing
 alias la="ls -A"
@@ -44,6 +47,9 @@ alias pear="sudo pear"
 alias pecl="sudo pecl"
 alias port="sudo port"
 
+# Quicklook from command-line
+alias ql='f(){ qlmanage -p "$1";}; f'
+
 # Create a new RAMDisk
 alias ramdisk='f() { SIZE=200000;test -n "$1" && SIZE=$(($1*2000));diskutil eraseVolume HFS+ RAMDisk `hdid -nomount ram://$SIZE`;}; f'
 
@@ -52,6 +58,9 @@ alias req='f() { REPO=`git remote -v | grep origin -m 1 | sed "s:\/: :" | awk "{
 
 # Install 'rmtrash' and alias 'rm' so we never delete files, just move them to the trash
 alias rm="rmtrash"
+
+# Quickly switch to root
+alias root="sudo su -"
 
 # Make 'vim' use 'sudo' so we can access files that we shouldn't
 alias svim="sudo vim"

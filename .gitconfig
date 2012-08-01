@@ -1,0 +1,77 @@
+[user]
+    name = John-Michael Glenn
+    email = phyre19@gmail.com
+
+[github]
+    user = phyreman
+    token = !sh -c 'echo $GITHUB_TOKEN'
+
+[core]
+    autocrlf = input
+    editor = subl
+    quotepath = false
+    excludesfile=~/.gitignore
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+
+[help]
+    autocorrect = 1
+
+[advice]
+    resolveconflict = true
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+    insteadOf = "github:"
+
+[url "git@git01.phpfog.com:"]
+    insteadOf = "pf:"
+    insteadOf = "phpfog:"
+
+[alias]
+    # branching, made easier
+    b = checkout -b
+
+    # list branches
+    branches = branch -a --color
+
+    # commit aliases
+    c = commit -m
+
+    # clean up merged branches
+    cleanup = !sh -c 'BRANCH=`git branch --merged | grep -v master | tr -d \" \"` && git push origin :$BRANCH && git branch -d $BRANCH'
+
+    # checkout is too long to type
+    co = checkout
+
+    # hard reset
+    goto = reset --hard
+
+    # inspired by co-workers
+    fix = commit -am "fix"
+
+    # history as a tree
+    hist = log --graph --oneline --all --decorate --color
+
+    # publish a branch
+    publish = push -u origin HEAD
+
+    # list remotes verbosely
+    remotes = remote -v
+
+    # better status
+    st = status -sb
+
+    # git add -u shortcut
+    u = add -u
+
+    # update all remotes, pruning removed tracking branches
+    update-remotes = remote update --prune
