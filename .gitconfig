@@ -4,7 +4,6 @@
 
 [github]
     user = phyreman
-    token = !sh -c 'echo $GITHUB_TOKEN'
 
 [core]
     autocrlf = input
@@ -32,10 +31,6 @@
 [url "git://github.com/"]
     insteadOf = "github:"
 
-[url "git@git01.phpfog.com:"]
-    insteadOf = "pf:"
-    insteadOf = "phpfog:"
-
 [alias]
     # branching, made easier
     b = checkout -b
@@ -47,7 +42,7 @@
     c = commit -m
 
     # clean up merged branches
-    cleanup = !sh -c 'BRANCH=`git branch --merged | grep -v master | tr -d \" \"` && git push origin :$BRANCH && git branch -d $BRANCH'
+    cleanup = !sh -c 'BRANCH=`git branch --merged | grep -v master | tr -d \" \"` && git push origin :$BRANCH'
 
     # checkout is too long to type
     co = checkout
@@ -61,6 +56,9 @@
     # history as a tree
     hist = log --graph --oneline --all --decorate --color
 
+    # pull with a rebase (suggested by teh internetz)
+    p = pull --rebase
+
     # publish a branch
     publish = push -u origin HEAD
 
@@ -72,6 +70,9 @@
 
     # git add -u shortcut
     u = add -u
+
+    # publish without setting remote every time
+    up = push origin HEAD
 
     # update all remotes, pruning removed tracking branches
     update-remotes = remote update --prune

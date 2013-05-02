@@ -15,11 +15,17 @@ HISTFILESIZE=2000
 # Alias list to make life easier
 test -f "$HOME/.bash_aliases" && source "$HOME/.bash_aliases"
 
-# Enable programmatic completion
-test -f /opt/local/etc/bash_completion && source /opt/local/etc/bash_completion
-
 # Make the terminal pretty
 test -f "$HOME/.bash_ps1" && source "$HOME/.bash_ps1"
+
+# Brew prefix directory
+BPRE=`brew --prefix`
+
+# Enable programmatic completion
+source $BPRE/etc/bash_completion
+
+# Let's use Z for quick path changing
+source $BPRE/etc/profile.d/z.sh
 
 # Make grep pretty
 export GREP_COLOR="1;37;41"
@@ -63,3 +69,5 @@ export LSCOLORS="gxfxcxdxbxgggdabagacad"
 # The default is "exfxcxdxbxegedabagacad", i.e. blue foreground and
 # default background for regular directories, black foreground and red
 # background for setuid executables, etc.
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
