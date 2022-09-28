@@ -1,7 +1,10 @@
 # Reset color for command output
 function prompt_command {
+    # git-friendly
     BRANCH=`git symbolic-ref HEAD 2>/dev/null | sed "s:.*\/::"`
     PS1='\[\033[0;31m\]\u\[\033[0m\]:\[\033[0;36m\]\W \[\033[0;33m\]'`test ! -z $BRANCH && echo "$BRANCH "`'\[\033[0m\]\[\033[1;37m\]$\[\033[0m\] '
+    # Non-git
+    #PS1='\[\033[0;31m\]\u\[\033[0m\]:\[\033[0;36m\]\W \[\033[1;37m\]$\[\033[0m\] '
     PS1="\[\033[G\]$PS1"
 }
 PROMPT_COMMAND=prompt_command
